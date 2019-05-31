@@ -1,26 +1,43 @@
 $(document).ready(function() {
 
-    var staticButtons = ["Corvette", "Ferrari", "Camaro", "Lamborghini"];
+    //static button variable
+    var staticButtons = ["Chevrolet",
+        "Ferrari",
+        "Ford",
+        "Lamborghini",
+        "Hyundai",
+        "Dodge",
+        "Pagani",
+        "Bugatti",
+        "Koenigsegg",
+        "Buick",
+        "Pontiac"
+    ];
 
+    //gif get function
     function displaySearch() {
 
+        //gif search criteria
         $("#gif_place").empty();
         var input = $(this).attr("data-name");
-        var limit = 50;
+        var limit = 100;
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + input + "&limit=" + limit + "&api_key=8nHhTz9818lYcCD8PbeeT5hQA6i0q1kd";
 
+        //giphy connection
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function(response) {
             console.log(response);
-            console.log(this);
+            console.log(input);
 
+            //for loop for limit of search returns and display
             for (var j = 0; j < limit; j++) {
 
+                //gif element creation and display attributes
                 var displayGif = $("<div>");
                 displayGif.addClass("holder");
-
+                //giphy search and image state urls
                 var image = $("<img>");
                 image.attr("src", response.data[j].images.fixed_height_still.url);
                 image.attr("data-still", response.data[j].images.fixed_height_still.url);
@@ -28,18 +45,20 @@ $(document).ready(function() {
                 image.attr("data-state", "still");
                 image.attr("class", "gif");
                 displayGif.append(image);
-
+                //display rating per gif
                 var rating = response.data[j].rating;
 
                 var pRating = $("<p>").text("Rating: " + rating);
                 displayGif.append(pRating)
 
+                //append the HTML
                 $("#gif_place").append(displayGif);
 
             }
         });
     }
 
+    // Function for displaying gifs
     function renderButtons() {
 
         $("#button_display").empty();
@@ -72,11 +91,9 @@ $(document).ready(function() {
 
     $("#submitSearch").on("click", function() {
         event.preventDefault();
-
         var input = $("#user-input").val().trim();
-        search.reset();
         staticButtons.push(input);
-
+        search.reset();
         renderButtons();
 
         return false;

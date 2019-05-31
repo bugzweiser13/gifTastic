@@ -5,10 +5,13 @@ body {
     background-attachment: fixed;
 }
 
-.jumbotron {
+#banner {
+    background: url("../images/fire_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
     margin-top: 2%;
-    background: lightgrey;
     border: 1px solid black;
+    color: red;
     box-shadow: 2px 5px 15px black;
 }
 
@@ -19,28 +22,30 @@ h1 {
 
 label {
     font-weight: bolder;
+    font-size: 20px;
     color: white;
     text-shadow: 2px 2px black;
 }
 
 .search_btn {
+    margin-top: 1%;
     margin-right: 1%;
-    font-size: 14px;
-    padding: 2px;
+    font-size: 16px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 2px 5px 15px black;
 }
 
 .submit_btn {
     font-size: 16px;
-    padding: 2px;
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 2px 5px 15px black;
 }
 
 #user-input {
     font-size: 16px;
-    padding: 2px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 2px 5px 15px black;
 }
