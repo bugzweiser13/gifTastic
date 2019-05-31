@@ -49,7 +49,12 @@ $(document).ready(function() {
                 var rating = response.data[j].rating;
 
                 var pRating = $("<p>").text("Rating: " + rating);
-                displayGif.append(pRating)
+                displayGif.append(pRating);
+
+                //download button
+                var downLoad = response.data[j].bitly_url;
+                var dlBtn = $("<button>").html("<a href=" + downLoad + ">Download</a></button>");
+                displayGif.append(dlBtn);
 
                 //append the HTML
                 $("#gif_place").append(displayGif);
@@ -58,7 +63,7 @@ $(document).ready(function() {
         });
     }
 
-    // Function for displaying gifs
+    // Function for displaying gifs search buttons
     function renderButtons() {
 
         $("#button_display").empty();
@@ -74,6 +79,7 @@ $(document).ready(function() {
         }
     }
 
+    //image to show still image upon load or motion when gif clicked
     function imageChangeState() {
 
         var state = $(this).attr("data-state");
@@ -89,6 +95,7 @@ $(document).ready(function() {
         }
     }
 
+    //user input to add search buttons
     $("#submitSearch").on("click", function() {
         event.preventDefault();
         var input = $("#user-input").val().trim();
@@ -99,6 +106,7 @@ $(document).ready(function() {
         return false;
     });
 
+    //execution
     $(document).on("click", "#input", displaySearch);
     $(document).on("click", ".gif", imageChangeState);
 

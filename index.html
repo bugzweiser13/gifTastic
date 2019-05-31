@@ -28,8 +28,8 @@
         <div class="row">
             <div class="col-sm-11 d-flex justify-content-end" id="input_form">
                 <form id="search">
-                    <br><label for="user-input">Enter A Vehicle Make to Search For!</label><br>
-                    <input type=text id="user-input">
+                    <br><label for="user-input">Custom Search Feature</label><br>
+                    <input type=text id="user-input" value="Enter Text To Search" onfocus="this.value=''" onblur="(this.value=='')? this.value='Enter Text To Search':this.value;">
                     <input id="submitSearch" type="submit" class="submit_btn" value="Add To Search Buttons">
                 </form>
             </div>
