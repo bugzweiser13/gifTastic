@@ -12,7 +12,9 @@ $(document).ready(function() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).done(function(response) {
+        }).then(function(response) {
+            console.log(response);
+            console.log(this);
 
             for (var j = 0; j < limit; j++) {
 
@@ -28,8 +30,6 @@ $(document).ready(function() {
                 displayGif.append(image);
 
                 var rating = response.data[j].rating;
-                console.log(response);
-                console.log("What: " + input);
 
                 var pRating = $("<p>").text("Rating: " + rating);
                 displayGif.append(pRating)
@@ -71,6 +71,7 @@ $(document).ready(function() {
     }
 
     $("#submitSearch").on("click", function() {
+        event.preventDefault();
 
         var input = $("#user-input").val().trim();
         search.reset();
@@ -79,11 +80,10 @@ $(document).ready(function() {
         renderButtons();
 
         return false;
-    })
-
-    renderButtons();
+    });
 
     $(document).on("click", "#input", displaySearch);
     $(document).on("click", ".gif", imageChangeState);
 
+    renderButtons();
 });

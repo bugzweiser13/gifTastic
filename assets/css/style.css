@@ -2,7 +2,7 @@ body {
     background: url("../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: static;
+    background-attachment: fixed;
 }
 
 .jumbotron {
