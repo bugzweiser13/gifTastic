@@ -51,10 +51,6 @@ label {
     box-shadow: 2px 5px 15px black;
 }
 
-#search img {
-    width: 70%;
-}
-
 #gif_place {
     margin-top: 1%;
     width: 95%;
@@ -206,87 +202,29 @@ a:visited {
         padding: 10px;
         font-size: 18px;
     }
-}
+}*/
 
 @media only screen and (max-width: 500px) {
-    #banner {
-        margin: 2% auto 5% auto;
-        width: 85%;
+    #banner h1 {
+        font-size: 22px;
     }
-    #banner h2,
-    #sb_title h2 {
+    #button_display {
+        text-align: center;
+    }
+    .search_btn {
         font-size: 12px;
     }
-    .btn-player h3,
-    .btn-enemy h3 {
-        font-size: 8px;
+    .submit_btn {
+        font-size: 12px;
     }
-    #ps,
-    #es {
-        font-size: 13px;
+    #user-input {
+        font-size: 12px;
     }
-    #selection {
-        margin: 0 0 0 7%;
-    }
-    #selection button {
-        margin: 1% 0 0 2%;
-        width: 23%;
-        padding: 2px;
-    }
-    #selection img {
-        width: 90%;
-    }
-    #scoreboard {
+    #gif_place {
+        margin-top: 1%;
         width: 95%;
-        padding: 2px;
-        height: 125px;
-        margin: 2% 0 0 2%;
     }
-    #sb_pl_hp {
-        margin-right: 2%;
+    .holder {
+        margin: 0 0 0 5%;
     }
-    #sb_pl_hp,
-    #sb_op_hp {
-        font-size: 6px;
-        height: 75px;
-        width: 25%;
-    }
-    .pla_hp,
-    .opo_hp {
-        padding: 1px;
-    }
-    #plahp,
-    #opohp {
-        font-size: 30px;
-    }
-    #stats {
-        margin-top: 2%;
-        width: 40%;
-        font-size: 10px;
-    }
-    #space {
-        margin-top: 3%;
-    }
-    .player,
-    .enemy {
-        padding: 2px;
-        font-size: 10px;
-        width: 30%;
-    }
-    .enemy {
-        margin-left: 2%;
-    }
-    .player img,
-    .enemy img {
-        width: 90%;
-    }
-    #pla,
-    #opo {
-        font-size: 10px;
-    }
-    #btn-attack {
-        height: 25px;
-        padding: 10px;
-        font-size: 10px;
-    }
-}*/
+}

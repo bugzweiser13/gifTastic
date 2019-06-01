@@ -20,7 +20,7 @@ $(document).ready(function() {
         //gif search criteria
         $("#gif_place").empty();
         var input = $(this).attr("data-name");
-        var limit = 100;
+        var limit = 10;
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + input + "&limit=" + limit + "&api_key=8nHhTz9818lYcCD8PbeeT5hQA6i0q1kd";
 
         //giphy connection
@@ -31,13 +31,13 @@ $(document).ready(function() {
             console.log(response);
             console.log(input);
 
-            //for loop for limit of search returns and display
+            //for loop for limit of search returns and display gifs
             for (var j = 0; j < limit; j++) {
 
                 //gif element creation and display attributes
                 var displayGif = $("<div>");
                 displayGif.addClass("holder");
-                //giphy search and image state urls
+                //giphy search image state urls / add attributes
                 var image = $("<img>");
                 image.attr("src", response.data[j].images.fixed_height_still.url);
                 image.attr("data-still", response.data[j].images.fixed_height_still.url);
@@ -45,15 +45,17 @@ $(document).ready(function() {
                 image.attr("data-state", "still");
                 image.attr("class", "gif");
                 displayGif.append(image);
+
+
+
                 //display rating per gif
                 var rating = response.data[j].rating;
-
-                var pRating = $("<p>").text("Rating: " + rating);
+                var pRating = $("<p>").text("Rating: " + rating.toUpperCase());
                 displayGif.append(pRating);
 
                 //download button
-                var downLoad = response.data[j].bitly_url;
-                var dlBtn = $("<button>").html("<a href=" + downLoad + ">Download</a></button>");
+                var downLoad = response.data[j].images.original.mp4;
+                var dlBtn = $("<button>").html("<a href=" + downLoad + " id='download'>Download</a></button>");
                 displayGif.append(dlBtn);
 
                 //append the HTML
@@ -77,6 +79,7 @@ $(document).ready(function() {
             newButton.text(staticButtons[i]);
             $("#button_display").append(newButton);
         }
+
     }
 
     //image to show still image upon load or motion when gif clicked
@@ -100,10 +103,9 @@ $(document).ready(function() {
         event.preventDefault();
         var input = $("#user-input").val().trim();
         staticButtons.push(input);
-        search.reset();
         renderButtons();
 
-        return false;
+        //return false;
     });
 
     //execution
