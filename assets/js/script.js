@@ -46,16 +46,15 @@ $(document).ready(function() {
                 image.attr("class", "gif");
                 displayGif.append(image);
 
-
-
                 //display rating per gif
                 var rating = response.data[j].rating;
                 var pRating = $("<p>").text("Rating: " + rating.toUpperCase());
                 displayGif.append(pRating);
 
                 //download button
-                var downLoad = response.data[j].images.original.mp4;
-                var dlBtn = $("<button>").html("<a href=" + downLoad + " id='download'>Download</a></button>");
+                var download = response.data[j].images.original.mp4;
+                var dlBtn = $("<button>").html("<a href=" + download + ">Download</a></button>");
+                //dlBtn.attr("id", "download");
                 displayGif.append(dlBtn);
 
                 //append the HTML
@@ -64,7 +63,6 @@ $(document).ready(function() {
             }
         });
     }
-
     // Function for displaying gifs search buttons
     function renderButtons() {
 
@@ -105,7 +103,7 @@ $(document).ready(function() {
         staticButtons.push(input);
         renderButtons();
 
-        //return false;
+        return false;
     });
 
     //execution
