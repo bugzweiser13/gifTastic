@@ -18,7 +18,6 @@ $(document).ready(function() {
     function displaySearch() {
 
         //gif search criteria
-        $("#gif_place").empty();
         var input = $(this).attr("data-name");
         var limit = 10;
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + input + "&limit=" + limit + "&api_key=8nHhTz9818lYcCD8PbeeT5hQA6i0q1kd";
@@ -27,7 +26,7 @@ $(document).ready(function() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response) {
+        }).done(function(response) {
             console.log(response);
             console.log(input);
 
@@ -53,13 +52,14 @@ $(document).ready(function() {
 
                 //download button
                 var download = response.data[j].images.original.mp4;
-                var dlBtn = $("<button>").html("<a href=" + download + ">Download</a></button>");
+                var dlBtn = $("<button>").html("<a href=" + download + " download>Download</a></button>");
                 displayGif.append(dlBtn);
 
                 //append the HTML
-                $("#gif_place").append(displayGif);
+                $("#gif_place").prepend(displayGif);
 
             }
+
         });
     }
     // Function for displaying gifs search buttons
@@ -76,7 +76,6 @@ $(document).ready(function() {
             newButton.text(staticButtons[i]);
             $("#button_display").append(newButton);
         }
-
     }
 
     //show still image upon load or motion when gif clicked
