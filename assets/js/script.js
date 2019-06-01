@@ -54,7 +54,6 @@ $(document).ready(function() {
                 //download button
                 var download = response.data[j].images.original.mp4;
                 var dlBtn = $("<button>").html("<a href=" + download + ">Download</a></button>");
-                //dlBtn.attr("id", "download");
                 displayGif.append(dlBtn);
 
                 //append the HTML
@@ -80,7 +79,7 @@ $(document).ready(function() {
 
     }
 
-    //image to show still image upon load or motion when gif clicked
+    //show still image upon load or motion when gif clicked
     function imageChangeState() {
 
         var state = $(this).attr("data-state");
