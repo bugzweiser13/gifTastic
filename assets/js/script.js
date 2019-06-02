@@ -64,7 +64,6 @@ $(document).ready(function() {
     }
     // Function for displaying gifs search buttons
     function renderButtons() {
-
         $("#button_display").empty();
 
         for (var i = 0; i < staticButtons.length; i++) {
@@ -75,6 +74,7 @@ $(document).ready(function() {
             newButton.attr("data-name", staticButtons[i]);
             newButton.text(staticButtons[i]);
             $("#button_display").append(newButton);
+
         }
     }
 
@@ -97,12 +97,20 @@ $(document).ready(function() {
     //user input to add search buttons
     $("#submitSearch").on("click", function() {
         event.preventDefault();
+        $("#submitSearch").html("");
         var input = $("#user-input").val().trim();
+        localStorage.clear();
+        localStorage.setItem("input", input);
+        //$("#user-input").empty();
         staticButtons.push(input);
+        console.log(input);
+
         renderButtons();
 
         return false;
     });
+    //tried to save buttons added to local storage (not working...)
+    $("#button_display").text(localStorage.getItem("input"));
 
     //execution
     $(document).on("click", "#input", displaySearch);
